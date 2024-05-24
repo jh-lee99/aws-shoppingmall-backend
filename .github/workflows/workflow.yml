@@ -35,6 +35,22 @@ jobs:
     - name: echo image tag
       run: echo $IMAGE_TAG
 
+    - name: Update Kustomize Resources
+      run: |
+        # kustomize 리소스 레포지토리 클론
+        git clone https://github.com/jh-lee99/ljh-was-login
+        cd ljh-was-login
+        
+        # base/kustomization.yaml 파일 수정
+        sed -i "s|public.ecr.aws/d7s1z6u6/ljh-was-login:latest|${{ steps.login-ecr.outputs.registry }}/ljh-was-login:${{ env.IMAGE_TAG }}|g" echoserver-deployment.yaml
+        
+        # 변경 사항 커밋 및 푸시
+        git config user.name "jh-lee99"
+        git config user.email jun99h1219"@gmail.com"
+        git add echoserver-deployment.yaml
+        git commit -m "Update image tag to ${{ env.IMAGE_TAG }}"
+        git push origin main
+    
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v5
       with:
