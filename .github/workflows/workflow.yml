@@ -47,7 +47,6 @@ jobs:
         git config --global user.name "jh-lee99"
         git config --global user.email "jun99h1219@gmail.com"
         git clone https://${PERSONAL_ACCESS_TOKEN}@github.com/jh-lee99/ljh-was-login.git
-        git clone git@github.com:jh-lee99/ljh-was-login.git
         cd ljh-was-login
         
         sed -i "s|654654416925.dkr.ecr.ap-northeast-1.amazonaws.com/ljh-backend-shop-login:[^ ]*|${{ steps.login-ecr.outputs.registry }}/ljh-backend-shop-login:${{ env.IMAGE_TAG }}|g" echoserver-deployment.yaml
