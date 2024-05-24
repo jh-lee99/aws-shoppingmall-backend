@@ -41,13 +41,15 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Update Kustomize Resources
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
         # kustomize 리소스 레포지토리 클론
-        git clone git@github.com:jh-lee99/ljh-was-login.git
+        git clone https://${PERSONAL_ACCESS_TOKEN}@github.com/jh-lee99/ljh-was-login.git
         cd ljh-was-login
         
-        # base/kustomization.yaml 파일 수정
-        sed -i "s|public.ecr.aws/d7s1z6u6/ljh-was-login:latest|${{ steps.login-ecr.outputs.registry }}/ljh-was-login:${{ env.IMAGE_TAG }}|g" echoserver-deployment.yaml
+        # echoserver-deployment.yaml 파일 수정
+        sed -i "s|654654416925.dkr.ecr.ap-northeast-1.amazonaws.com/ljh-backend-shop-login:[^ ]*|${{ steps.login-ecr.outputs.registry }}/ljh-backend-shop-login:${{ env.IMAGE_TAG }}|g" echoserver-deployment.yaml
         
         # 변경 사항 커밋 및 푸시
         git config user.name "jh-lee99"
