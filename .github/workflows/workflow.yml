@@ -3,7 +3,7 @@ name: Docker Build and Push
 on:
   push:
     tags:
-    - '*'  # 모든 태그에 대해 이 워크플로우를 트리거합니다.
+      - '*'  # 모든 태그에 대해 이 워크플로우를 트리거합니다.
       
 jobs:
   build-and-push:
