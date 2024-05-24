@@ -14,11 +14,6 @@ jobs:
       contents: read
 
     steps:
-    - name: Configure Git Credentials
-      uses: microsoft/git-credential-manager-action@v2
-      with:
-        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          
     - name: Checkout Repository
       uses: actions/checkout@v4
 
@@ -40,12 +35,15 @@ jobs:
     - name: echo image tag
       run: echo $IMAGE_TAG
 
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
     - name: Update Kustomize Resources
-      env:
-        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
         # kustomize 리소스 레포지토리 클론
-        git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jh-lee99/ljh-was-login
+        git clone git@github.com:jh-lee99/ljh-was-login.git
         cd ljh-was-login
         
         # base/kustomization.yaml 파일 수정
