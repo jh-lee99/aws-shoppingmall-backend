@@ -41,9 +41,11 @@ jobs:
       run: echo $IMAGE_TAG
 
     - name: Update Kustomize Resources
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       run: |
         # kustomize 리소스 레포지토리 클론
-        git clone https://github.com/jh-lee99/ljh-was-login
+        git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jh-lee99/ljh-was-login
         cd ljh-was-login
         
         # base/kustomization.yaml 파일 수정
@@ -51,7 +53,7 @@ jobs:
         
         # 변경 사항 커밋 및 푸시
         git config user.name "jh-lee99"
-        git config user.email jun99h1219"@gmail.com"
+        git config user.email "jun99h1219@gmail.com"
         git add echoserver-deployment.yaml
         git commit -m "Update image tag to ${{ env.IMAGE_TAG }}"
         git push origin main
