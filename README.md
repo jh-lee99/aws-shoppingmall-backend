@@ -8,14 +8,10 @@ Cloud9에서 Clone 후 AWS codecommit에 push합니다.
 
 ### 쇼핑몰
 
-**Note: DB_HOST: 쇼핑몰 기능과 연결된 데이터베이스의 주소를 입력합니다. (ex. mydb)**
+**Note: 모든 환경변수는 런타임 시에 주입되어 동작합니다**
 
-**Note: DB_PORT: 쇼핑몰 기능과 연결된 데이터베이스가 동작하는 포트를 입력합니다. (ex. 3306)**
+### docker build 빌드 명령어 예시
 
-**Note: USER: 쇼핑몰 기능과 연결된 데이터베이스에서 사용할 유저 이름을 입력합니다. (ex. mydbuser)**
-
-**Note: PASSWORD: 쇼핑몰 기능과 연결된 데이터베이스에서 사용할 유저 비밀번호를 입력합니다. (ex. mydbpass)**
-
-**Note: DATABASE: 쇼핑몰 기능과 연결된 데이터베이스에서 사용할 DB를 입력합니다. (ex. testdb)**
+**Note: 별도 환경변수 없이 동작합니다.**
 
 깃허브 주소 [https://github.com/jh-lee99](https://github.com/jh-lee99)
