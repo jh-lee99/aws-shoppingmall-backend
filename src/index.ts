@@ -6,6 +6,8 @@ import {AuthMiddleware} from "./middleware/AuthMiddleware";
 
 let app = express();
 
+dotenv.config();
+
 // body-parser는 내장되어있음.  json 파싱하기 위해서 설정만 추가
 app.use(express.json());
 
