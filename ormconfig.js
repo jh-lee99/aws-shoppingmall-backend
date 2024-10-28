@@ -11,14 +11,14 @@ module.exports = {
     "master": {
       "host": process.env.MASTER_DB_HOST,
       "port": process.env.MASTER_DB_PORT,
-      "username": process.env.USER,
+      "username": process.env.DB_USER,
       "password": process.env.PASSWORD,
       "database": process.env.DATABASE,
     },
     "slaves": [{
       "host": process.env.SLAVE_DB_HOST,
       "port": process.env.SLAVE_DB_PORT,
-      "username": process.env.USER,
+      "username": process.env.DB_USER,
       "password": process.env.PASSWORD,
       "database": process.env.DATABASE,
     },]
