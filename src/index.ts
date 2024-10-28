@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import * as dotenv from 'dotenv';
 import express from 'express';
 import {createConnection} from "typeorm";
 import router from './router';
