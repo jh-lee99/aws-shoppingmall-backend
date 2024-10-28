@@ -2,6 +2,7 @@ import express from 'express';
 import {createConnection} from "typeorm";
 import router from './router';
 import {AuthMiddleware} from "./middleware/AuthMiddleware";
+import 'dotenv/config'
 
 let app = express();
 
