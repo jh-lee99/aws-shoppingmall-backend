@@ -2,27 +2,27 @@ const SnakeNamingStrategy = require("typeorm-naming-strategies").SnakeNamingStra
 
 module.exports = {
   "type": "mysql",
-  // "host": process.env.DB_HOST,
-  // "port": process.env.DB_PORT,
-  // "username": process.env.DB_USER,
-  // "password": process.env.PASSWORD,
-  // "database": process.env.DATABASE,
-  "replication": {
-    "master": {
-      "host": process.env.MASTER_DB_HOST,
-      "port": process.env.MASTER_DB_PORT,
-      "username": process.env.DB_USER,
-      "password": process.env.PASSWORD,
-      "database": process.env.DATABASE,
-    },
-    "slaves": [{
-      "host": process.env.SLAVE_DB_HOST,
-      "port": process.env.SLAVE_DB_PORT,
-      "username": process.env.DB_USER,
-      "password": process.env.PASSWORD,
-      "database": process.env.DATABASE,
-    },]
-  },
+  "host": process.env.DB_HOST,
+  "port": process.env.DB_PORT,
+  "username": process.env.DB_USER,
+  "password": process.env.PASSWORD,
+  "database": process.env.DATABASE,
+  // "replication": {
+  //   "master": {
+  //     "host": process.env.MASTER_DB_HOST,
+  //     "port": process.env.MASTER_DB_PORT,
+  //     "username": process.env.DB_USER,
+  //     "password": process.env.PASSWORD,
+  //     "database": process.env.DATABASE,
+  //   },
+  //   "slaves": [{
+  //     "host": process.env.SLAVE_DB_HOST,
+  //     "port": process.env.SLAVE_DB_PORT,
+  //     "username": process.env.DB_USER,
+  //     "password": process.env.PASSWORD,
+  //     "database": process.env.DATABASE,
+  //   },]
+  // },
   "synchronize": false,
   "autoLoadEntities": true,
   "logging": true,
