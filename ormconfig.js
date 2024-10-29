@@ -4,7 +4,7 @@ module.exports = {
   "type": "mysql",
   // "host": process.env.DB_HOST,
   // "port": process.env.DB_PORT,
-  // "username": process.env.USER,
+  // "username": process.env.DB_USER,
   // "password": process.env.PASSWORD,
   // "database": process.env.DATABASE,
   "replication": {
