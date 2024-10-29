@@ -24,8 +24,9 @@ module.exports = {
     },]
   },
   "synchronize": false,
+  "autoLoadEntities": true,
   "logging": true,
-  "entities": ["{src,dist}/entity/**/*{.ts,.js}"],
+  //"entities": ["{src,dist}/entity/**/*{.ts,.js}"],
   "migrations": ["{src,dist}/migrations/**/*{.ts,.js}"],
   "subscribers": ["{src,dist}/subscribers/**/*{.ts,.js}"],
   namingStrategy: new SnakeNamingStrategy()
